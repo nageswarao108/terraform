@@ -8,10 +8,10 @@
 # }
 
 
-resource "azurerm_resource_group" "rg_storage" {
-  location = var.deploy_location
-  name     = var.rg_stor
-}
+# resource "azurerm_resource_group" "rg_storage" {
+#   location = var.deploy_location
+#   name     = var.rg_stor
+# }
 
 
 resource "random_string" "random" {
@@ -24,8 +24,8 @@ resource "random_string" "random" {
 
 resource "azurerm_storage_account" "storage" {
   name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.rg_storage.name
-  location                 = azurerm_resource_group.rg_storage.location
+  resource_group_name      = "NageswarRG"
+  location                 = "east us"
   account_tier             = "Premium"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
@@ -42,9 +42,9 @@ data "azurerm_role_definition" "storage_role" {
   name = "Storage File Data SMB Share Contributor"
 }
 
-resource "azurerm_role_assignment" "af_role" {
-  scope              = azurerm_storage_account.storage.id
-  role_definition_id = data.azurerm_role_definition.storage_role.id
-  principal_id       = azuread_group.aad_group.id
-}
+# resource "azurerm_role_assignment" "af_role" {
+#   scope              = azurerm_storage_account.storage.id
+#   role_definition_id = data.azurerm_role_definition.storage_role.id
+#   principal_id       = azuread_group.aad_group.id
+# }
 
