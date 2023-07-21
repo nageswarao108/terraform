@@ -13,6 +13,18 @@
 #  }
 # }
 
+terraform {
+  required_providers {
+    azurerm = {
+      # ...
+    }
+  }
+  required_version = ">= 0.13"
+}
 
+# This block goes outside of the required_providers block!
+provider "azurerm" {
+  features {}
+}
 
 
