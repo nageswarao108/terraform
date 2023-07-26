@@ -17,6 +17,11 @@
 # }
 
 
+variable "FSSHARE" {
+  type = string
+  default = "fileshare1"
+}
+
 variable "deploy_location" {
   type        = string
   default     = "eastus"
