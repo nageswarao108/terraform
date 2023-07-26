@@ -19,7 +19,7 @@
 
 variable "name" {
   type = string
-  default = param.name
+  default = $(name)
 }
 
 
