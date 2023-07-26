@@ -17,6 +17,10 @@
 # }
 
 
+variable "name" {
+  type = string
+  default = param.name
+}
 
 
 variable "deploy_location" {
