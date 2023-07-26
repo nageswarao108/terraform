@@ -17,7 +17,7 @@
 # }
 
 
-variable "FSSHARE" {
+variable "Name" {
   type = string
   default = "fileshare1"
 }
