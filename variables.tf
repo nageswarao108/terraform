@@ -17,7 +17,7 @@
 # }
 
 
-variable "Name" {
+variable "name" {
   type = string
   default = "fileshare1"
 }
