@@ -19,7 +19,7 @@
 
 variable "name" {
   type = string
-  default = "fileshare1"
+  default = ""
 }
 
 
