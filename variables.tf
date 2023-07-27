@@ -19,7 +19,7 @@
 
 variable "name" {
   type = string
-  default =  (${VARIABLE_TO_BE_REPLACED}) 
+  default =  ('${VARIABLE_TO_BE_REPLACED}') 
 }
 
 
