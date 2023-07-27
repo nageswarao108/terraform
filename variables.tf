@@ -19,7 +19,7 @@
 
 variable "name" {
   type = string
-  default = ""
+  default = $(fs1)
 }
 
 
