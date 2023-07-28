@@ -18,10 +18,6 @@
 
 
 
-variable "name" {
-  type = string
-  default = prod.name
-}
 
 
 
