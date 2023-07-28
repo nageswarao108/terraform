@@ -21,10 +21,17 @@
 variable "variable_name" {
   type    = string
   default = "default_value" 
+}
 
-  app_name = "default_value"
+variable "app_name" {
+  type = string
+  default = "default_value"  
+}
 
-  appplan_name = "default_value"
+variable "appplan_name" {
+  type = string
+  default = "default_value"
+  
 }
 
 
