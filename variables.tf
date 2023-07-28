@@ -25,6 +25,21 @@ variable "variable_name" {
 
 
 
+variable "app_name" {
+  type = string
+  default = "value"  
+}
+
+variable "appplan_name" {
+  type = string
+  default = "value"
+  
+}
+
+
+
+
+
 
 variable "deploy_location" {
   type        = string
