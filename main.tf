@@ -21,6 +21,26 @@ resource "random_string" "random" {
 }
 
 
+resource "azurerm_service_plan" "appserviceplan" {
+  name                = var.appplan_name
+  location            = "east us"
+  resource_group_name = "NageswarRG"
+  os_type             = "Linux"
+  sku_name            = "B1"
+}
+
+
+resource "azurerm_linux_web_app" "webapp" {
+  name                  = var.app_name
+  location              = "east us"
+  resource_group_name   = "NageswarRG"
+  service_plan_id       = azurerm_service_plan.appserviceplan.id
+  https_only            = true
+  site_config { 
+    minimum_tls_version = "1.2"
+  }
+}
+
 
 resource "azurerm_storage_account" "storage" {
   name                     = "stor${random_string.random.id}"
