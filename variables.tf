@@ -18,6 +18,11 @@
 
 
 
+variable "variable_name" {
+  type    = string
+  default = "default_value" 
+}
+
 
 
 
