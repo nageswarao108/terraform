@@ -22,7 +22,7 @@ resource "random_string" "random" {
 
 
 resource "azurerm_service_plan" "appserviceplan" {
-  name                = "appplan12"
+  name                = var.appplan_name
   location            = "east us"
   resource_group_name = "NageswarRG"
   os_type             = "Linux"
