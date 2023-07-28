@@ -28,15 +28,6 @@ variable "app_name" {
   default = "default_value"  
 }
 
-variable "appplan_name" {
-  type = string
-  default = "default_value"
-  
-}
-
-
-
-
 variable "deploy_location" {
   type        = string
   default     = "eastus"
