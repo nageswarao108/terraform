@@ -32,7 +32,7 @@ resource "azurerm_storage_account" "storage" {
 }
 
 resource "azurerm_storage_share" "FSShare" {
-  name                 = var.name
+  name                 = variable_name
   storage_account_name = azurerm_storage_account.storage.name
   depends_on           = [azurerm_storage_account.storage]
 }
