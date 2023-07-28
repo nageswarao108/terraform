@@ -27,12 +27,12 @@ variable "variable_name" {
 
 variable "app_name" {
   type = string
-  default = "value"  
+  default = "default_value"  
 }
 
 variable "appplan_name" {
   type = string
-  default = "value"
+  default = "default_value"
   
 }
 
