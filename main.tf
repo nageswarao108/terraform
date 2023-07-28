@@ -33,7 +33,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_app_service" "example" {
-  name                = "var.app_name${random_string.random.id}"
+  name                = var.app_name
   location            = "east us"
   resource_group_name = "NageswarRG"
   app_service_plan_id = azurerm_app_service_plan.example.id
