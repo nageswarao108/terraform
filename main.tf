@@ -25,7 +25,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   name                = var.appplan_name
   location            = "east us"
   resource_group_name = "NageswarRG"
-  os_type             = "Linux"
+  os_type             = "Windows"
   sku_name            = "B1"
 }
 
