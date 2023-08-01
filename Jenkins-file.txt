@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+
+   
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', credentialsId: 'b184ec80-a00c-4a93-8ca6-cd4c8e1c0d21', url: 'https://github.com/nageswarao128/main-128.git'
+            }
+        }
+
+        stage('Create Terraform Variables File') {
+    steps {
+        script {
+            def tfVarsContent = """\
+variable_name = "${params.REPLACEMENT_VALUE}"
+app_name = "${params.app_value}"
+appplan_name ="${params.appplan_value}"
+"""
+
+            writeFile file: 'terraform.tfvars', text: tfVarsContent
+        }
+    }
+}
+        
+        stage('Initialize Terraform') {
+            steps {
+                bat 'terraform init'
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                bat 'terraform plan -out=tfplan'
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                bat 'terraform apply -auto-approve tfplan'
+            }
+        }
+        
+        stage('Publish Artifact') {
+            steps {
+                // Archive the Terraform artifact (e.g., state file)
+                archiveArtifacts artifacts: 'main.tf, provider.tf, variables.tf, terraform.tfstate, tfplan'
+            }
+        }
+        
+        stage('Terraform destroy') {
+            steps {
+                bat 'terraform destroy -auto-approve'
+            }
+        }
+    }
+}
